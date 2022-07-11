@@ -21,7 +21,7 @@ module.exports = {
             .then(data => JSON.parse(data))
             .then(data => usersArr = data)
             .then(usersArr => usersArr.users.indexOf(user => user.id === id))
-            .then(index => usersArr.users[index + 1] = userToUpdate)
+            .then(index => usersArr.users[index + 1] = userToUpdate);
         return await fs.writeFile('./dataFile.json', JSON.stringify(usersArr));
     },
     createUser: async (user) => {

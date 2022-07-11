@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "http-server"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,6 +17,7 @@
   },
   "homepage": "https://github.com/chanakamin/bootcamp-template#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
     "express": "^4.18.1",
@@ -32,5 +32,8 @@
     "timestamp": "^0.0.1",
     "winston": "^3.8.1",
     "winston-mongodb": "^5.0.7"
+  },
+  "devDependencies": {
+    "jest": "^28.1.2"
   }
 }
