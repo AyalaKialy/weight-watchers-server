@@ -1,13 +1,21 @@
 {
   "manager": [
-    { "firstName": "manager", "lastName": "Levi", "email": "manager@gmail.com" }
+    {
+      "firstName": "manager",
+      "lastName": "Levi",
+      "email": "manager@gmail.com"
+    }
   ],
   "users": [
     {
       "id": "0",
       "firstName": "MMi",
       "lastName": "Levi",
-      "address": { "city": "jerusalem", "street": "arimon", "number": 5 },
+      "address": {
+        "city": "jerusalem",
+        "street": "arimon",
+        "number": 5
+      },
       "phone": "0521369874",
       "email": "ml@gmail.com",
       "hight": 1.7,
@@ -30,56 +38,60 @@
       },
       "diary": [
         {
-            "id": "1",
-            "date": "20/07/2002",
-            "breakfast": [
-                "eggs",
-                "yogurt",
-                "coffee"
-            ],
-            "lunch": [
-                "beans",
-                "meat",
-                "rice"
-            ],
-            "dinner": [
-                "vegetables",
-                "omelet"
-            ],
-            "snackingBetweenMeals": [
-                "עוגיות",
-                "סוכריות"
-            ]
+          "id": "1",
+          "date": "20/07/2002",
+          "breakfast": [
+            "eggs",
+            "yogurt",
+            "coffee"
+          ],
+          "lunch": [
+            "beans",
+            "meat",
+            "rice"
+          ],
+          "dinner": [
+            "vegetables",
+            "omelet"
+          ],
+          "snackingBetweenMeals": [
+            "עוגיות",
+            "סוכריות"
+          ]
         },
         {
-            "id": "2",
-            "date": "18/07/2002",
-            "breakfast": [
-                "eggs",
-                "yogurt",
-                "coffee"
-            ],
-            "lunch": [
-                "beans",
-                "meat",
-                "rice"
-            ],
-            "dinner": [
-                "vegetables",
-                "omelet"
-            ],
-            "snackingBetweenMeals": [
-                "עוגיות",
-                "סוכריות"
-            ]
+          "id": "2",
+          "date": "18/07/2002",
+          "breakfast": [
+            "eggs",
+            "yogurt",
+            "coffee"
+          ],
+          "lunch": [
+            "beans",
+            "meat",
+            "rice"
+          ],
+          "dinner": [
+            "vegetables",
+            "omelet"
+          ],
+          "snackingBetweenMeals": [
+            "עוגיות",
+            "סוכריות"
+          ]
         }
-    ]
-},
+      ]
+    },
     {
       "id": "1",
       "firstName": "Rachel",
       "lastName": "Keler",
-      "address": { "city": "jerusalem", "street": "arimon", "number": "5" },
+      "address": {
+        "city": "jerusalem",
+        "street": "arimon",
+        "number": "5"
+      },
       "phone": "0558963214",
       "email": "rk@gmail.com",
       "hight": "1.75",
@@ -102,56 +114,38 @@
       },
       "diary": [
         {
-            "id": "1",
-            "date": "20/07/2002",
-            "breakfast": [
-                "eggs",
-                "yogurt",
-                "coffee"
-            ],
-            "lunch": [
-                "beans",
-                "meat",
-                "rice"
-            ],
-            "dinner": [
-                "vegetables",
-                "omelet"
-            ],
-            "snackingBetweenMeals": [
-                "עוגיות",
-                "סוכריות"
-            ]
-        },
-        {
-            "id": "2",
-            "date": "18/07/2002",
-            "breakfast": [
-                "eggs",
-                "yogurt",
-                "coffee"
-            ],
-            "lunch": [
-                "beans",
-                "meat",
-                "rice"
-            ],
-            "dinner": [
-                "vegetables",
-                "omelet"
-            ],
-            "snackingBetweenMeals": [
-                "עוגיות",
-                "סוכריות"
-            ]
+          "id": "0",
+          "date": "20/07/2002",
+          "breakfast": [
+            "eggs",
+            "yogurt",
+            "coffee"
+          ],
+          "lunch": [
+            "beans",
+            "meat",
+            "rice"
+          ],
+          "dinner": [
+            "vegetables",
+            "omelet"
+          ],
+          "snackingBetweenMeals": [
+            "עוגיות",
+            "סוכריות"
+          ]
         }
-    ]
-},
+      ]
+    },
     {
       "id": "2",
       "firstName": "Shira",
       "lastName": "Avitan",
-      "address": { "city": "jerusalem", "street": "arimon", "number": "5" },
+      "address": {
+        "city": "jerusalem",
+        "street": "arimon",
+        "number": "5"
+      },
       "phone": "0536985214",
       "email": "sa@gmail.com",
       "hight": "1.65",
@@ -174,50 +168,50 @@
       },
       "diary": [
         {
-            "id": "1",
-            "date": "20/07/2002",
-            "breakfast": [
-                "eggs",
-                "yogurt",
-                "coffee"
-            ],
-            "lunch": [
-                "beans",
-                "meat",
-                "rice"
-            ],
-            "dinner": [
-                "vegetables",
-                "omelet"
-            ],
-            "snackingBetweenMeals": [
-                "עוגיות",
-                "סוכריות"
-            ]
+          "id": "1",
+          "date": "20/07/2002",
+          "breakfast": [
+            "eggs",
+            "yogurt",
+            "coffee"
+          ],
+          "lunch": [
+            "beans",
+            "meat",
+            "rice"
+          ],
+          "dinner": [
+            "vegetables",
+            "omelet"
+          ],
+          "snackingBetweenMeals": [
+            "עוגיות",
+            "סוכריות"
+          ]
         },
         {
-            "id": "2",
-            "date": "18/07/2002",
-            "breakfast": [
-                "eggs",
-                "yogurt",
-                "coffee"
-            ],
-            "lunch": [
-                "beans",
-                "meat",
-                "rice"
-            ],
-            "dinner": [
-                "vegetables",
-                "omelet"
-            ],
-            "snackingBetweenMeals": [
-                "עוגיות",
-                "סוכריות"
-            ]
+          "id": "2",
+          "date": "18/07/2002",
+          "breakfast": [
+            "eggs",
+            "yogurt",
+            "coffee"
+          ],
+          "lunch": [
+            "beans",
+            "meat",
+            "rice"
+          ],
+          "dinner": [
+            "vegetables",
+            "omelet"
+          ],
+          "snackingBetweenMeals": [
+            "עוגיות",
+            "סוכריות"
+          ]
         }
-    ]
-}
+      ]
+    }
   ]
 }
