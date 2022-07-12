@@ -1,45 +1,41 @@
 const fs = require('fs/promises')
 
+const getData = async () => {
+    const data = await fs.readFile('./dataFile.json');
+    return await JSON.parse(data);
+};
+  
+const setData = (data) => fs.writeFile('./dataFile.json', JSON.stringify(data));
 module.exports = {
+
     getAllUsers: async () => {
-        return await fs.readFile('./dataFile.json')
-            .then(data => JSON.parse(data).users);
+        const data = await getData();
+        return data.users;
     },
     MeansOfIdentification: async (meansOfIdentification) => {
-        return await fs.readFile('./dataFile.json')
-            .then(data => JSON.parse(data))
-            .then(data => data.users.find(user => user.email === meansOfIdentification || user.phone === meansOfIdentification));
+        let data = await getData();
+        return data = data.users.find(user => user.email === meansOfIdentification || user.phone === meansOfIdentification); 
     },
     getUserById: async (id) => {
-        return await fs.readFile('./dataFile.json')
-            .then(data => JSON.parse(data))
-            .then(data => data.users.find(user => user.id === id));
+        let data = await getData();
+        return data = data.users.find(user => user.id === id);
     },
     updateUser: async (id, userToUpdate) => {
-        let usersArr;
-        await fs.readFile('./dataFile.json')
-            .then(data => JSON.parse(data))
-            .then(data => usersArr = data)
-            .then(usersArr => usersArr.users.indexOf(user => user.id === id))
-            .then(index => usersArr.users[index + 1] = userToUpdate);
-        return await fs.writeFile('./dataFile.json', JSON.stringify(usersArr));
+        let data = await getData();
+        let index = data.users.indexOf(user => user.id === id);
+        data.users[index + 1] = userToUpdate;
+        return await setData(data);
     },
     createUser: async (user) => {
-        let usersArr;
-        await fs.readFile('./dataFile.json')
-            .then(data => JSON.parse(data))
-            .then(data => usersArr = data)
-            .then(usersArr => usersArr.users.push(user))
-        return await fs.writeFile('./dataFile.json', JSON.stringify(usersArr));
+        let data = await getData();
+        data.users.push(user);
+        return await setData(data);
     },
     deleteUser: async (id) => {
-        let usersArr;
-        await fs.readFile('./dataFile.json')
-            .then(data => JSON.parse(data))
-            .then(data => usersArr = data)
-            .then(usersArr => usersArr.users.indexOf(user => user.id === id))
-            .then(index => usersArr.users.splice(index, 1))
-        return await fs.writeFile('./dataFile.json', JSON.stringify(usersArr));
+        let data = await getData();
+        let index = data.users.indexOf(user => user.id === id);
+        data.users.splice(index, 1);
+        return await setData(data);
     }
 }
 

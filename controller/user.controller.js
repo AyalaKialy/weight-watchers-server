@@ -3,8 +3,8 @@ const service = require('../service/user.service');
 module.exports = {
     getAllUsers: async (req, res, next) => {
         try {
-            if (req.query.meansOfIdentification) {
-                const meansOfIdentification = req.query.meansOfIdentification;
+            const meansOfIdentification = req.query.meansOfIdentification
+            if (meansOfIdentification) {
                 const user = await service.MeansOfIdentification(meansOfIdentification);
                 res.send(user)
             }
@@ -17,16 +17,6 @@ module.exports = {
             next(error)
         };
     },
-    getAllOrderByUserId: async (req, res, next) => {
-        try {
-            const userId = req.params.id;
-            const id = await userModel.findOne({ _id: userId }).populate({ path: 'allOrdersByUserId', select: 'userID date amount products' });
-            await res.send(id);
-        }
-        catch (error) {
-            next(error)
-        }
-    },
     getUserById: async (req, res, next) => {
         try {
             const id = req.params.id;
@@ -37,13 +27,13 @@ module.exports = {
             next(error)
         };
     },
-    updateUser: async (req, res) => {
+    updateUser: async (req, res, next) => {
         try {
             const id = req.params.id;
             const user = req.body;
-            await service.updateUser(id, user).then(() => {
-                res.status(200).json('put user successfully')
-            })
+            await service.updateUser(id, user);
+            res.status(200).json('put user successfully');
+            
         }
         catch (error) {
             next(error)
@@ -52,9 +42,8 @@ module.exports = {
     createUser: async (req, res, next) => {
         try {
             const user = req.body;
-            await service.createUser(user).then(() => {
-                res.status(200).json('post user successfully')
-            })
+            await service.createUser(user);
+            res.status(200).json('post user successfully');
         }
         catch (error) {
             next(error)
@@ -63,11 +52,10 @@ module.exports = {
     deleteUser: async (req, res, next) => {
         try {
             const id = req.params.id;
-            await service.deleteUser(id).then(() => {
-                res.status(200).json({
+            await service.deleteUser(id);
+            res.status(200).json({
                     message: `user deleted`
                 })
-            })
         }
         catch (error) {
             next(error)

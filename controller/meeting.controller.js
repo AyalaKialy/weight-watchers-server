@@ -24,9 +24,8 @@ module.exports = {
         try {
             const id = req.params.id;
             const meetingToUpdate = req.body;
-            await service.updateMeeting(id, meetingToUpdate).then(() => {
-                res.status(200).json('put meetings successfully')
-            })
+            await service.updateMeeting(id, meetingToUpdate);
+            res.status(200).json('put meetings successfully');
         }
         catch (error) {
             next(error)
@@ -35,9 +34,8 @@ module.exports = {
     createMeeting: async (req, res, next) => {
         try {
             const meetings = req.body;
-            await service.createMeeting(meetings).then(() => {
-                res.status(200).json('post meetings successfully')
-            })
+            await service.createMeeting(meetings);
+            res.status(200).json('post meetings successfully');
         }
         catch (error) {
             next(error)
@@ -46,11 +44,8 @@ module.exports = {
     deleteMeeting: async (req, res, next) => {
         try {
             const date = req.params.date;
-            await service.deleteMeeting(date).then(() => {
-                res.status(200).json({
-                    message: `meeting deleted`
-                })
-            })
+            await service.deleteMeeting(date);
+            res.status(200).json({ message: `meeting deleted`});
         }
         catch (error) {
             next(error)
