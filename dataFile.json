@@ -188,28 +188,6 @@
             "עוגיות",
             "סוכריות"
           ]
-        },
-        {
-          "id": "2",
-          "date": "18/07/2002",
-          "breakfast": [
-            "eggs",
-            "yogurt",
-            "coffee"
-          ],
-          "lunch": [
-            "beans",
-            "meat",
-            "rice"
-          ],
-          "dinner": [
-            "vegetables",
-            "omelet"
-          ],
-          "snackingBetweenMeals": [
-            "עוגיות",
-            "סוכריות"
-          ]
         }
       ]
     }
