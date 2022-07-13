@@ -31,12 +31,12 @@ app.use((err, req, res, next) => {
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.all('*', (req, res, next) => {
-    res.status(404).sendFile(path.join(__dirname, '../client/src/html/404.html'));
-    next();
+app.use((req, res)=>{
+    res.status(404).sendFile(path.join(__dirname,'./static/404.html'));
+
 });
 
-app.listen(PORT || 8200, () => logger.warn(`server is runing on port ${PORT}`));
+app.listen(PORT || 8200, () => logger.warn(`server is running on port ${PORT}`));
 
 
 
