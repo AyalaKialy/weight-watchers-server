@@ -30,4 +30,4 @@ const userSchema=new mongoose.Schema({
     diary:diarySchema
  })
 
-module.exports=mongoose.model('User',userSchema)
+module.exports=mongoose.model('user',userSchema)
