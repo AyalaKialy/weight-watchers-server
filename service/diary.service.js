@@ -9,7 +9,6 @@ module.exports = {
                 user = data.users.find(user => user.id === id);
             });
         return user.diary;
-
     },
     addNewDaySummary: async (myId, summary) => {
         let usersArr;

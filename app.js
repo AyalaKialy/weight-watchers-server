@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const db = require('./DB/mongoose');
 const { PORT, ENVIRONMENT } = require('./config');
 const logger = require('./configuration');
 const path = require('path');
@@ -8,9 +9,11 @@ const cors = require('cors');
 const swaggerUi = require("swagger-ui-express");
 swaggerDocument = require("./swagger.json");
 
-
 const user = require('./router/user.router');
 const meeting = require("./router/meeting.router");
+
+app.use(express.static('static'));
+db.connect();
 
 app.use(cors());
 

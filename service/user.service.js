@@ -1,11 +1,10 @@
 const fs = require('fs/promises')
-
 const getData = async () => {
     const data = await fs.readFile('./dataFile.json');
     return await JSON.parse(data);
-};
+  };
   
-const setData = (data) => fs.writeFile('./dataFile.json', JSON.stringify(data));
+const setData = async(data) => fs.writeFile('./dataFile.json', JSON.stringify(data));
 module.exports = {
 
     getAllUsers: async () => {
@@ -21,6 +20,7 @@ module.exports = {
         return data = data.users.find(user => user.id === id);
     },
     updateUser: async (id, userToUpdate) => {
+        debugger
         let data = await getData();
         let index = data.users.indexOf(user => user.id === id);
         data.users[index + 1] = userToUpdate;
