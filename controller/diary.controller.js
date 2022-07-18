@@ -9,7 +9,7 @@ module.exports = {
             res.send({ diary })
         }
         catch (error) {
-            next(error)
+            next(error);
         };
     },
     addNewDaySummary: async (req, res, next) => {
@@ -21,7 +21,7 @@ module.exports = {
             })
         }
         catch (error) {
-            next(error)
+            next(error);
         };
     },
     updateDaySummary: async (req, res, next) => {
@@ -34,7 +34,7 @@ module.exports = {
             })
         }
         catch (error) {
-            next(error)
+            next(error);
         };
     },
     deleteDaySummary: async (req, res, next) => {
@@ -49,7 +49,7 @@ module.exports = {
             })
         }
         catch (error) {
-            next(error)
+            next(error);
         };
     }
 }
