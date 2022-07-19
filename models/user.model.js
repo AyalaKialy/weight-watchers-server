@@ -1,33 +1,76 @@
-const mongoose=require('mongoose');
-const {Schema}=mongoose;
-const meetingSchema=require('meeting.model');
-const diarySchema=require('diary.model');
+const mongoose = require("mongoose");
+const schema = mongoose.Schema;
+const {isEmail} = require('validator')
 
-const userSchema=new mongoose.Schema({
-    id:String,
-    firstName:String,
-    lastName:String,
-    city:String,
-    street:String,
-    number:Number,
-    phone:String,
-    email:{
-        type:String,
-        unique: true,
-        match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 'Please fill a valid email address']
+const addressSchema=new schema({
+    city: {
+        type: String,
     },
-    height:Number,
-    weight: [{
-        startWeight: { type: number },
-        meetings: [{
-            // id: {
-            //     type: mongoose.Schema.Types.ObjectId,
-            //     ref: 'meeting'
-            // }
-            type: [meetingSchema]
-        }]
-    }],
-    diary:diarySchema
+    street: {
+        type: String,
+    },
+    number: {
+        type: Number,
+        min: 1
+    }
+})
+
+const meetingSchema=new mongoose.Schema({
+    date: {
+        type: String,
+    },
+    weight: {
+        type: Number,
+        required: true
+    },
+    comments: {
+        type: String,
+    }
  })
 
-module.exports=mongoose.model('user',userSchema)
+ const diarySchema = mongoose.Schema({
+    date: { type: String, require: true },
+    breakfast: { type: [String], require: false },
+    lunch: { type: [String], require: false },
+    dinner: {type: [String],require: false},
+    snackingBetweenMeals: {type: [String],require: false}
+ }) 
+
+const userSchema = new schema({ 
+    firstName: {
+        type: String,
+        minlength: 2
+    },
+    lastName: {
+        type: String,
+        minlength: 2
+    },
+    address: addressSchema,
+    phone:{
+        type: String,
+        minlength: 7,
+        maxlength: 10
+    },
+    email: {
+        type: String,
+        unique:true,
+        validate:[isEmail,'please insert valid'],
+        // match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 'Please fill a valid email address']
+    },
+    height: {
+        type: Number,
+        minlength: 2,
+        maxlength:3
+    },
+    weight: {
+        startWeight:{
+        type: Number,
+        minlength: 2,
+        maxlength:3
+       },
+       meetings:[meetingSchema]
+    },
+    diary:[diarySchema]
+    },{timestamps:true})
+  
+module.exports=mongoose.model('users',userSchema);

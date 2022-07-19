@@ -1,18 +1,11 @@
-const service = require('../service/user.service');
-//const service = require('../service.mongoose/user.service');
+//const service = require('../service/user.service');
+const service = require('../service.mongoose/user.service');
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
         try {
-            const meansOfIdentification = req.query.meansOfIdentification
-            if (meansOfIdentification) {
-                const user = await service.MeansOfIdentification(meansOfIdentification);
-                res.send(user)
-            }
-            else {
                 const users = await service.getAllUsers();
                 res.send(users);
-            }
         }
         catch (error) {
             next(error)

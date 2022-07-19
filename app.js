@@ -25,9 +25,10 @@ app.use("/api/meeting", meeting);
 app.use((err, req, res, next) => {
     if (ENVIRONMENT === 'development')
         logger.error(err.message)
+    if(err.message=='user validation failed: email: Please enter a valid email')
+        res.status(400).send(err.message);
     else {
         res.status(500).send(err.message)
-        logger.error(`${error}`)
     }
     next();
 })
