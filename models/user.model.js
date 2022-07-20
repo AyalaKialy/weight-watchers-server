@@ -1,33 +1,41 @@
-const mongoose=require('mongoose');
-const {Schema}=mongoose;
-const meetingSchema=require('meeting.model');
-const diarySchema=require('diary.model');
+const mongoose = require("mongoose");
+const { isEmail } = require('validator')
 
-const userSchema=new mongoose.Schema({
-    id:String,
-    firstName:String,
-    lastName:String,
-    city:String,
-    street:String,
-    number:Number,
-    phone:String,
-    email:{
-        type:String,
-        unique: true,
-        match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 'Please fill a valid email address']
+const userSchema = mongoose.Schema({
+    firstName: {
+        type: String,
+        minlength: 2
     },
-    height:Number,
-    weight: [{
-        startWeight: { type: number },
-        meetings: [{
-            // id: {
-            //     type: mongoose.Schema.Types.ObjectId,
-            //     ref: 'meeting'
-            // }
-            type: [meetingSchema]
-        }]
+    lastName: {
+        type: String,
+        minlength: 2
+    },
+    phone: {
+        type: String,
+        minlength: 7,
+        maxlength: 10
+    },
+    adress: [{
+        city: { type: String },
+        street: { type: String },
+        number: { type: Number, min: 1 }
     }],
-    diary:diarySchema
- })
+    email: {
+        type: String,
+        unique: true,
+        validate: [isEmail, 'please insert valid'],
+        // match: [/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/, 'Please fill a valid email address']
+    },
+    height: {
+        type: Number,
+        minlength: 2,
+        maxlength: 3
+    },
+    startWeight: {
+        type: Number,
+        minlength: 2,
+        maxlength: 3
+    },
+}, { timestamps: true })
 
-module.exports=mongoose.model('user',userSchema)
+module.exports = mongoose.model('users', userSchema);

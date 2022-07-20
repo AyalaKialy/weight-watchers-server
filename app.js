@@ -10,7 +10,9 @@ const swaggerUi = require("swagger-ui-express");
 swaggerDocument = require("./swagger.json");
 
 const user = require('./router/user.router');
+const diary = require('./router/diary.router');
 const meeting = require("./router/meeting.router");
+const account = require('./router/account.router');
 
 app.use(express.static('static'));
 db.connect();
@@ -20,7 +22,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/user', user);
+app.use('/api/diary', diary);
 app.use("/api/meeting", meeting);
+app.use('/api/account', account);
 
 app.use((err, req, res, next) => {
     if (ENVIRONMENT === 'development')
@@ -34,8 +38,8 @@ app.use((err, req, res, next) => {
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.use((req, res)=>{
-    res.status(404).sendFile(path.join(__dirname,'./static/404.html'));
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, './static/404.html'));
 
 });
 

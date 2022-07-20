@@ -1,12 +1,11 @@
-const service = require('../service/diary.service');
-//const service = require('../service.mongoose/diary.service');
+const service = require('../service.mongoose/diary.service');
 
 module.exports = {
     getDiaryUser: async (req, res, next) => {
         try {
-            const id = req.params.id;
-            const diary = await service.getDiaryUser(id);
-            res.send({ diary })
+            const userId = req.params.id;
+            const diary = await service.getDiaryUser(userId);
+            res.send({ diary });
         }
         catch (error) {
             next(error);
@@ -14,9 +13,9 @@ module.exports = {
     },
     addNewDaySummary: async (req, res, next) => {
         try {
-            const id = req.params.id;
+            const userId = req.params.id;
             const summary = req.body;
-            await service.addNewDaySummary(id, summary).then(() => {
+            await service.addNewDaySummary(userId, summary).then(() => {
                 res.status(200).json('post day summary successfully')
             })
         }
@@ -27,9 +26,8 @@ module.exports = {
     updateDaySummary: async (req, res, next) => {
         try {
             const id = req.params.id;
-            const dayId = req.params.dayId;
             const summary = req.body;
-            await service.updateDaySummary(id, dayId, summary).then(() => {
+            await service.updateDaySummary(id, summary).then(() => {
                 res.status(200).json('update day summary successfully')
             })
         }
@@ -40,9 +38,8 @@ module.exports = {
     deleteDaySummary: async (req, res, next) => {
         try {
             const id = req.params.id;
-            const dayId = req.params.dayId;
 
-            await service.deleteDaySummary(id, dayId).then(() => {
+            await service.deleteDaySummary(id).then(() => {
                 res.status(200).json({
                     message: `day summary successfully deleted`
                 })

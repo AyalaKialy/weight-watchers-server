@@ -47,3 +47,42 @@ error : Jul-12-2022 02:44:46 : Cannot read properties of undefined (reading 'pus
 error : Jul-12-2022 02:51:45 : Cannot read properties of undefined (reading 'push')
 error : Jul-12-2022 02:54:56 : Cannot read properties of undefined (reading 'push')
 
+error : Jul-19-2022 02:16:45 : Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error : Jul-19-2022 02:50:10 : Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+error : Jul-19-2022 02:52:42 : E11000 duplicate key error collection: weigth-watcher.users index: email_1 dup key: { email: "ml@gmail.com" }
+error : Jul-19-2022 04:18:28 : users validation failed: address.0: Cast to [ObjectId] failed for value "[ { city: 'jerusalem', street: 'arimon', number: 5 } ]" (type string) at path "address.0" because of "CastError"
+error : Jul-19-2022 05:18:35 : users validation failed: address.0: Cast to [ObjectId] failed for value "[ { city: 'jerusalem', street: 'arimon', number: 5 } ]" (type string) at path "address.0" because of "CastError"
+error : Jul-19-2022 06:46:49 : Parameter "filter" to updateOne() must be an object, got 62d6d1abc06fd2a7d1fe4123
+error : Jul-19-2022 06:49:45 : Parameter "filter" to findOne() must be an object, got 62d6d1abc06fd2a7d1fe4123
+error : Jul-19-2022 06:50:44 : Parameter "filter" to findOne() must be an object, got 62d6d1abc06fd2a7d1fe4123
+error : Jul-19-2022 06:51:38 : Parameter "filter" to findOne() must be an object, got 62d6d1abc06fd2a7d1fe4123
+error : Jul-19-2022 07:05:35 : Parameter "filter" to findOne() must be an object, got 62d6d1abc06fd2a7d1fe4123
+error : Jul-19-2022 07:05:59 : Parameter "filter" to findOne() must be an object, got 62d6d1abc06fd2a7d1fe4123
+error : Jul-19-2022 07:06:49 : Parameter "filter" to findOne() must be an object, got 62d69bdf5a96f54bb8e472a2
+error : Jul-19-2022 07:10:53 : Parameter "filter" to findOne() must be an object, got 62d69b2e6452847f4cd35c28
+error : Jul-19-2022 07:12:41 : Cannot read property 'diary' of undefined
+error : Jul-19-2022 07:16:43 : Cannot read property 'diary' of undefined
+error : Jul-19-2022 07:17:16 : Cannot read property 'diary' of undefined
+error : Jul-19-2022 07:17:37 : Cannot read property 'diary' of undefined
+error : Jul-19-2022 07:22:34 : E11000 duplicate key error collection: weigth-watcher.users index: email_1 dup key: { email: "WW@gmail.com" }
+error : Jul-19-2022 07:37:35 : E11000 duplicate key error collection: weigth-watcher.users index: email_1 dup key: { email: "WW@gmail.com" }
+error : Jul-19-2022 07:38:23 : dinner is not defined
+error : Jul-20-2022 09:55:53 : Cast to ObjectId failed for value "1" (type string) at path "_id" for model "diary"
+error : Jul-20-2022 10:06:49 : Cast to date failed for value "22/07/2002" (type string) at path "date"
+error : Jul-20-2022 10:12:50 : Cast to date failed for value "22/07/2002" (type string) at path "date"
+error : Jul-20-2022 10:18:39 : Cast to date failed for value "Invalid Date" (type Date) at path "date"
+error : Jul-20-2022 10:19:41 : Cast to date failed for value "Invalid Date" (type Date) at path "date"
+error : Jul-20-2022 10:21:27 : Cast to date failed for value "NaN" (type number) at path "date"
+error : Jul-20-2022 10:26:20 : ObjectId is not defined
+error : Jul-20-2022 10:38:25 : diary validation failed: date: Cast to date failed for value "30/07/2002" (type string) at path "date"
+error : Jul-20-2022 10:41:44 : Cast to date failed for value "19/07/2222" (type string) at path "date"
+error : Jul-20-2022 10:42:06 : Cast to date failed for value "19/07/2222" (type string) at path "date"
+error : Jul-20-2022 10:42:50 : diary validation failed: date: Cast to date failed for value "29/07/2222" (type string) at path "date"
+error : Jul-20-2022 10:43:35 : Cast to date failed for value "19/07/2222" (type string) at path "date"
+error : Jul-20-2022 10:44:30 : Cast to date failed for value "04/40/2222" (type string) at path "date"
+error : Jul-20-2022 10:44:50 : Cast to date failed for value "14/22/2222" (type string) at path "date"
+error : Jul-20-2022 10:53:21 : user is not defined
+error : Jul-20-2022 10:54:03 : email is not defined
+error : Jul-20-2022 11:19:06 : E11000 duplicate key error collection: weigth-watcher.users index: email_1 dup key: { email: "efl@gmail.com" }
+error : Jul-20-2022 11:28:44 : user is not defined
+error : Jul-20-2022 06:48:00 : Unexpected token { in JSON at position 175
