@@ -1,4 +1,3 @@
-//const service = require('../service/user.service');
 const service = require('../service.mongoose/user.service');
 
 module.exports = {
@@ -27,7 +26,7 @@ module.exports = {
             const user = req.body;
             await service.updateUser(id, user);
             res.status(200).json('put user successfully');
-            
+
         }
         catch (error) {
             next(error)
@@ -48,8 +47,8 @@ module.exports = {
             const id = req.params.id;
             await service.deleteUser(id);
             res.status(200).json({
-                    message: `user deleted`
-                })
+                message: `user deleted`
+            })
         }
         catch (error) {
             next(error)

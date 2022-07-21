@@ -1,11 +1,10 @@
-const service = require('../service/meeting.service');
-//const service = require('../service.mongoose/meeting.service');
+const service = require('../service.mongoose/meeting.service');
 
 module.exports = {
     getAllMeetings: async (req, res, next) => {
         try {
-                const meetings = await service.getAllMeetings();
-                res.send(meetings);
+            const meetings = await service.getAllMeetings();
+            res.send(meetings);
         }
         catch (error) {
             next(error)
@@ -44,9 +43,9 @@ module.exports = {
     },
     deleteMeeting: async (req, res, next) => {
         try {
-            const date = req.params.date;
-            await service.deleteMeeting(date);
-            res.status(200).json({ message: `meeting deleted`});
+            const id = req.params.id;
+            await service.deleteMeeting(id);
+            res.status(200).json({ message: `meeting deleted` });
         }
         catch (error) {
             next(error)
