@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const { isEmail } = require('validator')
 
 const userSchema = mongoose.Schema({
@@ -39,3 +40,4 @@ const userSchema = mongoose.Schema({
 }, { timestamps: true })
 
 module.exports = mongoose.model('users', userSchema);
+
