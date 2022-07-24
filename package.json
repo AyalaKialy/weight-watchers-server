@@ -22,6 +22,7 @@
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
     "express": "^4.18.1",
+    "express-openid-connect": "^2.8.0",
     "fs.promises": "^0.1.2",
     "http-server": "^14.1.1",
     "json-server": "^0.17.0",

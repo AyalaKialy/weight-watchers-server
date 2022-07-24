@@ -1,5 +1,6 @@
  
 const userService = require('../user.service');
+const accountService = require('../account.service');
 const userModel = require('../../models/user.model');
 
 const { expect } = require('chai');
@@ -28,13 +29,13 @@ describe('test users functionality', () => {
         email: 'kk@example.com',
         height:1.
     }]
-    test('return user bu id',async () => {
+    test('return user by id',async () => {
         const id=1;
         sinon.stub(userModel, 'findOne').returns(usersObject);
         const returnedUser = await userService.getUserById(id);
         expect(returnedUser).equal(usersObject);
     }),
-    
+
     test('return type of users',async () => {
         sinon.stub(userModel, 'find').returns(usersObject);
         const returnedUsers = await userService.getAllUsers();

@@ -8,17 +8,35 @@ const path = require('path');
 const cors = require('cors');
 const swaggerUi = require("swagger-ui-express");
 swaggerDocument = require("./swagger.json");
+const { auth } = require('express-openid-connect');
+
+const { requiresAuth } = require('express-openid-connect');
 
 const user = require('./router/user.router');
 const diary = require('./router/diary.router');
 const meeting = require("./router/meeting.router");
 const account = require('./router/account.router');
+process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0
 
 app.use(express.static('static'));
 db.connect();
 
-app.use(cors());
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: 'a long, randomly-generated string stored in env',
+  baseURL: 'http://localhost:3000',
+  clientID: 'cJNUBwv1v4BrlBGn9g1avg0DEaLxm0PV',
+  issuerBaseURL: 'https://dev-5ix03m9f.us.auth0.com'
+};
 
+app.use(auth(config));
+
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+app.use(cors());
 app.use(express.json());
 
 app.use('/api/user', user);
@@ -40,11 +58,14 @@ app.use((err, req, res, next) => {
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, './static/404.html'));
-
+  res.status(404).sendFile(path.join(__dirname, './static/404.html'));
 });
 
-app.listen(PORT || 8200, () => logger.warn(`server is running on port ${PORT}`));
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
+app.listen(PORT || 3000, () => logger.warn(`server is running on port ${PORT}`));
 
 
 
