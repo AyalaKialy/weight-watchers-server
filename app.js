@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const db = require('./DB/mongoose');
-const { PORT, ENVIRONMENT } = require('./config');
+const { PORT, ENVIRONMENT, SECRET, BASEURL, CLIENTID, ISSUERBASEASEURL } = require('./config');
 const logger = require('./configuration');
 const path = require('path');
 const cors = require('cors');
@@ -24,10 +24,10 @@ db.connect();
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: 'a long, randomly-generated string stored in env',
-  baseURL: 'http://localhost:3000',
-  clientID: 'cJNUBwv1v4BrlBGn9g1avg0DEaLxm0PV',
-  issuerBaseURL: 'https://dev-5ix03m9f.us.auth0.com'
+  secret: SECRET,
+  baseURL: BASEURL,
+  clientID: CLIENTID,
+  issuerBaseURL: ISSUERBASEASEURL
 };
 
 app.use(auth(config));
