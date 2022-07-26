@@ -3,5 +3,9 @@ require('dotenv').config();
 const PORT = process.env.PORT;
 const ENVIRONMENT = process.env.ENVIRONMENT;
 CONNECTION_STRING = process.env.CONNECTION_STRING;
+SECRET = process.env.SECRET;
+BASEURL = process.env.BASEURL;
+CLIENTID =  process.env.CLIENTID;
+ISSUERBASEASEURL =  process.env.ISSUERBASEASEURL;
 
-module.exports = { PORT, ENVIRONMENT, CONNECTION_STRING };
+module.exports = { PORT, ENVIRONMENT, CONNECTION_STRING, SECRET, BASEURL, CLIENTID, ISSUERBASEASEURL};
