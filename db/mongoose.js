@@ -1,8 +1,8 @@
-const mongoose = require ('mongoose');
-const {CONNECTION_STRING} = require('../config');
+const mongoose = require('mongoose');
+const { CONNECTION_STRING } = require('../config');
 class MongooseDB {
-    constructor(){}
-    async connect(){
+    constructor() { }
+    async connect() {
         const url = CONNECTION_STRING;
         await mongoose.connect(url);
         console.log(`moggooseDB connected`);
@@ -10,4 +10,4 @@ class MongooseDB {
 
 }
 
-module.exports= new MongooseDB();
+module.exports = new MongooseDB();

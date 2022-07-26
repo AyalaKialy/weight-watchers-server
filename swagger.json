@@ -9,14 +9,13 @@
             "url": "https://opensource.org/licenses/MIT"
         }
     },
-    "host": "localhost:8200",
+    "host": "localhost:3000",
     "basePath": "/api/",
     "tags": [
         {
             "name": "user",
             "description": "API for users in the system"
         },
-        
         {
             "name": "meeting",
             "description": "API for users in the system"
@@ -49,10 +48,12 @@
                     }
                 }
             },
-            "post" : {
-                "summary" : "post user",
+            "post": {
+                "summary": "post user",
                 "description": "post user",
-                "produces": ["application/json"],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "in": "body",
@@ -62,8 +63,8 @@
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "user" : {
-                                    "type" : "object"
+                                "user": {
+                                    "type": "object"
                                 }
                             }
                         }
@@ -74,10 +75,10 @@
                         "description": "successful operation",
                         "schema": {
                             "type": "array"
-                    } 
+                        }
+                    }
                 }
             }
-        }
         },
         "/user/{id}": {
             "get": {
@@ -104,10 +105,12 @@
                     }
                 }
             },
-            "put" : {
-                "summary" : "Update user",
+            "put": {
+                "summary": "Update user",
                 "description": "Update user",
-                "produces": ["application/json"],
+                "produces": [
+                    "application/json"
+                ],
                 "parameters": [
                     {
                         "name": "id",
@@ -124,8 +127,8 @@
                         "schema": {
                             "type": "object",
                             "properties": {
-                                "user" : {
-                                    "type" : "object"
+                                "user": {
+                                    "type": "object"
                                 }
                             }
                         }
@@ -136,32 +139,34 @@
                         "description": "successful operation",
                         "schema": {
                             "type": "array"
-                    } 
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete user",
+                "description": "Delete user",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id that needs to be deleted",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array"
+                        }
+                    }
                 }
             }
-        },
-        "delete" : {
-            "summary" : "Delete user",
-            "description": "Delete user",
-            "produces": ["application/json"],
-            "parameters": [
-                {
-                    "name": "id",
-                    "in": "path",
-                    "description": "user id that needs to be deleted",
-                    "required": true,
-                    "type": "string"
-                }
-            ],
-            "responses": {
-                "200": {
-                    "description": "successful operation",
-                    "schema": {
-                        "type": "array"
-                } 
-            }
-        }
-    }
         }
     }
 }

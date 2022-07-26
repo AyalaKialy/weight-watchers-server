@@ -7,7 +7,7 @@ const logger = require('./configuration');
 const path = require('path');
 const cors = require('cors');
 const swaggerUi = require("swagger-ui-express");
-swaggerDocument = require("./swagger.json");
+const swaggerDocument = require("./swagger.json");
 
 const user = require('./router/user.router');
 const diary = require('./router/diary.router');
@@ -29,7 +29,7 @@ app.use('/api/account', account);
 app.use((err, req, res, next) => {
     if (ENVIRONMENT === 'development')
         logger.error(err.message)
-    if(err.message=='user validation failed: email: Please enter a valid email')
+    if (err.message === 'user validation failed: email: Please enter a valid email')
         res.status(400).send(err.message);
     else {
         res.status(500).send(err.message)
@@ -44,9 +44,5 @@ app.use((req, res) => {
 
 });
 
-app.listen(PORT || 8200, () => logger.warn(`server is running on port ${PORT}`));
-
-
-
-
+app.listen(PORT || 3000, () => logger.warn(`server is running on port ${PORT}`));
 
