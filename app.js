@@ -66,6 +66,6 @@ app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
 });
 
-app.listen(PORT || 3000, () => logger.warn(`server is running on port ${PORT}`));
+app.listen(PORT || 8200, () => logger.warn(`server is running on port ${PORT}`));
 
 

@@ -16,11 +16,11 @@ const userSchema = mongoose.Schema({
         minlength: 7,
         maxlength: 10
     },
-    adress: [{
+    adress: {
         city: { type: String },
         street: { type: String },
         number: { type: Number, min: 1 }
-    }],
+    },
     email: {
         type: String,
         unique: true,

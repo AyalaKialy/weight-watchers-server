@@ -26,6 +26,6 @@ module.exports = {
             });
     },
     deleteDaySummary: async (id) => {
-        return diaryModel.deleteOne({ userID: id });
+        return diaryModel.deleteOne({ _id: id });
     }
 }

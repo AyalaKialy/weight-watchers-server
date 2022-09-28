@@ -3,7 +3,7 @@ const service = require('../service.mongoose/diary.service');
 module.exports = {
     getDiaryUser: async (req, res, next) => {
         try {
-            const userId = req.params.id;
+            const userId = req.params.userId;
             const diary = await service.getDiaryUser(userId);
             res.send({ diary });
         }
@@ -13,7 +13,7 @@ module.exports = {
     },
     addNewDaySummary: async (req, res, next) => {
         try {
-            const userId = req.params.id;
+            const userId = req.params.userId;
             const summary = req.body;
             await service.addNewDaySummary(userId, summary).then(() => {
                 res.status(200).json('post day summary successfully')
